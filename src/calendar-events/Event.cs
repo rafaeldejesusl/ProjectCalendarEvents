@@ -10,21 +10,29 @@ public class Event : IEvent
 
     public Event(string title, string date, string description)
     {
-        throw new NotImplementedException();
+        Title = title;
+        var dateArray = date.Split('-');
+        EventDate = new DateTime(Convert.ToInt32(dateArray[0]), Convert.ToInt32(dateArray[1]), Convert.ToInt32(dateArray[2]));
+        Description = description;
     }
 
     public Event(string title, string date)
     {
-        throw new NotImplementedException();  
+        Title = title;
+        var dateArray = date.Split('-');
+        EventDate = new DateTime(Convert.ToInt32(dateArray[0]), Convert.ToInt32(dateArray[1]), Convert.ToInt32(dateArray[2])); 
     }
 
     public void DelayDate(int days)
     {
-        throw new NotImplementedException();
+        EventDate = EventDate.AddDays(days);
     }
 
     public string PrintEvent(string format)
     {
-        throw new NotImplementedException();      
+        string dateString = EventDate.ToString("d");
+        if(format == "normal") return $"Evento = {Title}\nDate = {dateString}\n";
+        if(format == "detailed") return $"Evento = {Title}\nDate = {dateString}\nDescription = {Description}";
+        return "Invalid Format";      
     }
 }
