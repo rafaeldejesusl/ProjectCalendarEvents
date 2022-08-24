@@ -5,10 +5,10 @@ public class EventList
 {
     private class Node
     {
-        public <> Value;
+        public Event Value;
         public Node? Next;
 
-        public Node(<> t)
+        public Node(Event t)
         {
             Value = t;
             Next = null;
@@ -22,7 +22,7 @@ public class EventList
         Head = null;
     }
 
-    public void Add(<> input) 
+    public void Add(Event input) 
     {
         if (Head == null)
         {
@@ -41,9 +41,10 @@ public class EventList
     public void Print(string format)
     {
         Node? printNode = Head;
-        while(printNode.Next != null)
+        while(printNode != null)
         {
-            
+            printNode.Value.PrintEvent(format);
+            printNode = printNode.Next;
         }
         
     }
@@ -68,12 +69,30 @@ public class EventList
 
     public int SearchByTitle(string title)
     {
-        throw new NotImplementedException();     
+        Node? printNode = Head;
+        int i = 0;
+        while(printNode != null)
+        {
+            if(printNode.Value.Title == title) return i;
+            printNode = printNode.Next;
+            i++;
+        }
+        return -1;     
     }
 
     public int SearchByDate(string dateSearch)
     {
-        throw new NotImplementedException();   
+        var dateArray = dateSearch.Split('-');
+        var date = new DateTime(Convert.ToInt32(dateArray[0]), Convert.ToInt32(dateArray[1]), Convert.ToInt32(dateArray[2]));
+        Node? printNode = Head;
+        int i = 0;
+        while(printNode != null)
+        {
+            if(printNode.Value.EventDate == date) return i;
+            printNode = printNode.Next;
+            i++;
+        }
+        return -1;   
     }
     
 }
