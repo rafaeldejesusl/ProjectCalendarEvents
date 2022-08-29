@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calendar-events", "calendar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calendar-events.Test", "calendar-events.Test\calendar-events.Test.csproj", "{9BFFCC59-F861-4F42-AE74-BCCDB60B02B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "calendar-events.Test.Test", "calendar-events.Test.Test\calendar-events.Test.Test.csproj", "{C916542B-248E-4CBB-9078-3E17EACA61B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
